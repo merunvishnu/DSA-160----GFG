@@ -1,0 +1,38 @@
+#User function Template for python3
+class Solution:
+    def getLastMoment(self, n, left, right):
+        #code here
+        max_left = max(left) if left else 0
+        # Ants moving right: their fall time is (n - current position)
+        max_right = max(n - r for r in right) if right else 0
+        # The last moment is the maximum of these times
+        return max(max_left, max_right)
+
+
+
+#{ 
+ # Driver Code Starts
+# Initial Template for Python 3
+
+# Main
+if __name__ == '__main__':
+    t = int(input())
+    while t:
+        t -= 1
+
+        # Reading the length of the plank
+        n = int(input().strip())
+
+        # Reading positions of ants moving left
+        left = [int(x) for x in input().strip().split()]
+
+        # Reading positions of ants moving right
+        right = [int(x) for x in input().strip().split()]
+
+        ob = Solution()
+        result = ob.getLastMoment(n, left, right)
+
+        print(result)
+        print("~")
+
+# } Driver Code Ends
